@@ -1,0 +1,29 @@
+.deck {
+  height: 200px;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+
+.one {
+  background-color: #4286f4; }
+
+.two {
+  background-color: #42f445; }
+
+.three {
+  background-color: #f4f442; }
+
+.four {
+  background-color: #f4427a; }
+
+.note {
+  height: 45%;
+  width: 22%; }
+
+.hidden {
+  background-color: #000000; }
+
+/*# sourceMappingURL=app.css.map */
