@@ -1,5 +1,9 @@
 var note = document.querySelectorAll(".note");
 let notes = [...note];
+var count = 0;
+
+var classesToCheck = [];
+
 
 
 // Fisher-Yates (aka Knuth) Shuffle
@@ -29,7 +33,37 @@ function placeDeck() {
 }
 
 function displayNote(){
-    this.classList.remove("hidden");
+   if (count<2){
+        this.classList.remove("hidden");
+        classesToCheck.push(this.className);
+        console.log(classesToCheck);
+        count ++;
+        checkMatch();
+   }   
+}
+
+
+function checkMatch(){
+    
+    if (classesToCheck[0] === classesToCheck [1]){
+        console.log("yes!");
+        matched();
+    } else {
+        console.log("no match");
+        notMatched();
+    }
+    
+}
+
+
+function matched(){
+    alert('matched');
+}
+
+function notMatched(){
+    console.log('not matched');
+
+    
 }
 
 
