@@ -1,5 +1,5 @@
 .deck {
-  height: 200px;
+  height: 300px;
   width: 400px;
   display: flex;
   flex-wrap: wrap;
@@ -7,21 +7,27 @@
   justify-content: space-around;
   align-items: center; }
 
-.one {
+.color-1 {
   background-color: #4286f4; }
 
-.two {
+.color-2 {
   background-color: #42f445; }
 
-.three {
-  background-color: #f4f442; }
+.color-3 {
+  background-color: #fcfc28; }
 
-.four {
+.color-4 {
   background-color: #f4427a; }
 
-.note {
-  height: 45%;
-  width: 22%; }
+.color-5 {
+  background-color: #cb51f7; }
+
+.color-6 {
+  background-color: #ff9d1e; }
+
+.card {
+  height: 24%;
+  width: 24%; }
 
 .hidden {
   background-color: #000000; }

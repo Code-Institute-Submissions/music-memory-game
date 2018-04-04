@@ -1,77 +1,67 @@
-var note = document.querySelectorAll(".note");
-let notes = [...note];
-var count = 0;
-
-var classesToCheck = [];
-
-
-
-// Fisher-Yates (aka Knuth) Shuffle
-function shuffle(array) {
-    var currentIndex = array.length,
-        temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+$(document).ready(function(){
+    
+    var cards = [1,1,2,2,3,3,4,4,5,5,6,6,];
+    cards = shuffle(cards);
+    
+    //shuffle code from:
+    //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array    
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
     }
-    return array;
-}
-
-
-function placeDeck() {
-    var shuffledNotes = shuffle(notes);
-    var deck = document.querySelector(".deck");
-    for (var i = 0; i < shuffledNotes.length; i++) {
-        shuffledNotes.forEach(function(note) {
-            deck.appendChild(note);
+    //end
+    
+    //assign shuffled cards to divs
+    assignIndex();
+    assignClass();
+    function assignIndex(){
+        $('.card').each(function(index){
+            $(this).attr('data-card-index', cards[index]);     
         });
     }
-}
-
-function displayNote(){
-   if (count<2){
-        this.classList.remove("hidden");
-        classesToCheck.push(this.className);
-        console.log(classesToCheck);
-        count ++;
-        checkMatch();
-   }   
-}
-
-
-function checkMatch(){
     
-    if (classesToCheck[0] === classesToCheck [1]){
-        console.log("yes!");
-        matched();
-    } else {
-        console.log("no match");
-        notMatched();
+    function assignClass(){
+        $('.card').each(function(index){
+            $(this).addClass("color-" + cards[index]);     
+        });
     }
     
-}
-
-
-function matched(){
-    alert('matched');
-}
-
-function notMatched(){
-    console.log('not matched');
-
+    //add event listeners to display cards on click and add selected class
     
-}
-
-
-document.body.onload = placeDeck();
-
-
-for (var i = 0; i < notes.length; i++){
-    note = notes[i];
-    note.addEventListener("click", displayNote);
+    $('.card').on('click', function(){
+        $(this).addClass('selected')
+        checkMatch();
+    });
     
-}
+    
+    function checkMatch(){
+        if($('.selected').length == 2) {
+            if($('.selected').first().data('card-index') == $('.selected').last().data('card-index')){
+                console.log("match");
+                //remove class "notMatched"
+                $('.selected').each(function(){
+                    $(this).removeClass("notMatched");     
+            });
+                //disable cards so can't be clicked again
+                //animate cards to show match
+                //leave displayed
+                
+            } else {
+                console.log("no");
+                //animate to show no match
+                //after a delay of 1 second turn both cards back over
+            }
+            $('.card').each(function(){
+                $(this).removeClass("selected");     
+            });
+        }
+    }
+    
+});
