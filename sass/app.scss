@@ -1,0 +1,46 @@
+@import "_variables";
+@import "_mixins";
+@import "animate-sass/animate";
+
+.deck {
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    
+.color-1{
+    background-color: $blue;
+    
+}
+    
+.color-2{
+    background-color: $green;   
+}
+.color-3{
+    background-color: $yellow;
+}
+.color-4{
+    background-color: $pink;
+}
+    
+.color-5{
+    background-color: $purple ;
+}
+.color-6{
+    background-color: $orange; 
+}
+.card{
+    height: 30%;
+    width: 22%;
+}
+
+    
+    
+.hidden{
+    background-color: $hidden-note;
+}

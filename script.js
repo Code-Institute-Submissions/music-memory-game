@@ -53,7 +53,7 @@ $(document).ready(function() {
                 console.log("match");
                 //remove class "notMatched"
                 $('.selected').each(function() {
-                    $(this).removeClass("notMatched").addClass("disabled");
+                    $(this).removeClass("notMatched selected");
                 });
                 //disable cards so can't be clicked again
                 //animate cards to show match
@@ -62,7 +62,7 @@ $(document).ready(function() {
             }
             else {
                 console.log("no match");
-                $('.selected').removeClass('disabled');
+                $('.notMatched').removeClass('disabled selected');
                 //animate to show no match
                 //after a delay of 1 second turn both cards back over
             }
