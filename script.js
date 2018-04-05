@@ -38,11 +38,10 @@ $(document).ready(function() {
     //add event listeners to display cards on click and add selected class
 
     $('.card').on('click', function() {
-        $(this).addClass('selected disabled')
         
+        $(this).addClass('selected disabled animated flipInY').removeClass("hidden")
         checkMatch();
         $('.disabled').off('click');
-        console.log("clicked");
     });
 
 
@@ -61,8 +60,17 @@ $(document).ready(function() {
 
             }
             else {
-                console.log("no match");
-                $('.notMatched').removeClass('disabled selected');
+               
+                setTimeout(function(){
+                  $('.selected').each(function(){
+                      $(this).removeClass("flipInY").addClass("animated bounce");
+                  });
+                   console.log("no match");
+                }, 1000);
+                
+               
+                
+               
                 //animate to show no match
                 //after a delay of 1 second turn both cards back over
             }
