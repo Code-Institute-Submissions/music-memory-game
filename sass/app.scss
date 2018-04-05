@@ -41,6 +41,10 @@
 
     
     
-.hidden{
+.faceDown{
     background-color: $hidden-note;
+}
+
+.disabled {
+    pointer-events: none;
 }
