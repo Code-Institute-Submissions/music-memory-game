@@ -1,6 +1,9 @@
 $(document).ready(function() {
+    
+    
+    
 
-    var cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, ];
+    var cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
     cards = shuffle(cards);
 
     //assign shuffled cards to divs
@@ -9,7 +12,8 @@ $(document).ready(function() {
 
     //add event listeners to display cards on click and add selected class
     $('.card').on('click', function() {
-        $(this).addClass('selected disabled animated flipInY').removeClass("faceDown")
+        $(this).addClass('flipped selected disabled');
+        
         checkMatch();
     });
 
@@ -39,7 +43,7 @@ $(document).ready(function() {
 
     function assignClass() {
         $('.card').each(function(index) {
-            $(this).addClass("color-" + cards[index]);
+            $(this).children(".back").addClass("color-" + cards[index]);
         });
     }
 
@@ -48,7 +52,8 @@ $(document).ready(function() {
             if ($('.selected').first().data('card-index') == $('.selected').last().data('card-index')) {
                 setTimeout(function() {
                     $('.selected').each(function() {
-                        $(this).removeClass("flipInY notMatched selected").addClass("tada");
+                        $(this).removeClass("notMatched selected").addClass("animated tada");
+                        $(this).children(".back").removeClass('back');
                     });
                     console.log("match");
                 }, 700);
@@ -58,7 +63,7 @@ $(document).ready(function() {
             else {
                 setTimeout(function() {
                     $('.selected').each(function() {
-                        $(this).removeClass("flipInY disabled selected").addClass("faceDown");
+                        $(this).removeClass("flipped disabled selected");
                     });
                     console.log("no match");
                 }, 700);
