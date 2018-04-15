@@ -5,6 +5,8 @@ $(document).ready(function() {
 
     var cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
     cards = shuffle(cards);
+    
+    var turnCounter = 0;
 
     var bflat = new Audio();
     bflat.src = "assets/sounds/b-flat.mp3";
@@ -36,8 +38,7 @@ $(document).ready(function() {
     //add event listeners to display cards on click and add selected class
     $('.card').on('click', function() {
         $(this).addClass('flipped selected disabled');
-
-        if ($(this).data('card-index') == "1") {
+         if ($(this).data('card-index') == "1") {
             bflat.play();
         }
         else if ($(this).data('card-index') == "2") {
@@ -55,15 +56,24 @@ $(document).ready(function() {
         else if ($(this).data('card-index') == "6") {
             g.play();
         }
-
-
-
-        console.log($('.disabled').length);
+        moveCounter();
         checkMatch();
         checkForWin();
-
+        
     });
 
+    //move counter
+    
+    function moveCounter(){
+        if ($('.flipped').length == 2){
+            turnCounter ++;
+            $('#counter').html(turnCounter);
+            console.log(turnCounter);
+        }
+    }
+    
+    
+    
 
     //shuffle code from:
     //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array    
@@ -94,6 +104,10 @@ $(document).ready(function() {
             $(this).children(".back").addClass("color-" + cards[index]);
         });
     }
+    
+    function playSound(){
+       
+    }
 
     function checkMatch() {
         if ($('.selected').length == 2) {
@@ -104,7 +118,7 @@ $(document).ready(function() {
                         $(this).children(".back").removeClass('back');
                     });
                     console.log("match");
-                }, 700);
+                }, 400);
                 //animate cards to show match
                 //leave displayed
             }
