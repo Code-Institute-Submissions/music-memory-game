@@ -5,6 +5,23 @@ $(document).ready(function() {
 
     var cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
     cards = shuffle(cards);
+    
+    var bflat = new Audio();
+    bflat.src = "b-flat.mp3";
+    
+    var c = new Audio();
+    c.src = "c.mp3";
+    
+    var d = new Audio();
+    d.src = "d.mp3";
+    
+    var e = new Audio();
+    e.src = "e.mp3";
+    
+    var f = new Audio();
+    f.src = "f.mp3";
+    
+    
 
     //assign shuffled cards to divs
     assignIndex();
@@ -13,6 +30,23 @@ $(document).ready(function() {
     //add event listeners to display cards on click and add selected class
     $('.card').on('click', function() {
         $(this).addClass('flipped selected disabled');
+        
+        if ($(this).data('card-index') == "1"){
+            bflat.play();
+        } else if ($(this).data('card-index') == "2"){
+            c.play();
+        } else if ($(this).data('card-index') == "3"){
+            d.play();
+        } else if ($(this).data('card-index') == "4"){
+            e.play(); 
+        } else if ($(this).data('card-index') == "5"){
+            f.play();
+        } else if ($(this).data('card-index') == "6"){
+            g.play();  
+        }    
+        
+       
+        
         
         checkMatch();
     });
@@ -33,6 +67,7 @@ $(document).ready(function() {
         return array;
     }
     //end
+    
 
 
     function assignIndex() {
