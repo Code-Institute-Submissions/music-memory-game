@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     var cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
     cards = shuffle(cards);
-    
+
     var turnCounter = 0;
 
     var bflat = new Audio();
@@ -33,49 +33,73 @@ $(document).ready(function() {
 
     //assign shuffled cards to divs
     assignIndex();
-    //assign colours or plain display to cards
-    assignClass();
-    
+    //assign colours to cards
+    assignColours();
+
+    //option buttons
+    $("#justSounds-btn").on("click", function() {
+        $('.back').toggleClass("plainFront");
+        $("#justColours-btn").toggleClass("disabled");
+    });
+    $("#justColours-btn").on("click", function() {
+        $('.card').toggleClass("soundOn");
+        $("#justSounds-btn").toggleClass("disabled");
+    });
+   
+
+
+
 
     //add event listeners to display cards on click and add selected class
     $('.card').on('click', function() {
         $(this).addClass('flipped selected disabled');
-        
-         if ($(this).data('card-index') == "1") {
-            bflat.play();
-        }
-        else if ($(this).data('card-index') == "2") {
-            c.play();
-        }
-        else if ($(this).data('card-index') == "3") {
-            d.play();
-        }
-        else if ($(this).data('card-index') == "4") {
-            e.play();
-        }
-        else if ($(this).data('card-index') == "5") {
-            f.play();
-        }
-        else if ($(this).data('card-index') == "6") {
-            g.play();
+        if ($(this).hasClass("soundOn")) {
+            if ($(this).data('card-index') == "1") {
+                bflat.play();
+            }
+            else if ($(this).data('card-index') == "2") {
+                c.play();
+            }
+            else if ($(this).data('card-index') == "3") {
+                d.play();
+            }
+            else if ($(this).data('card-index') == "4") {
+                e.play();
+            }
+            else if ($(this).data('card-index') == "5") {
+                f.play();
+            }
+            else if ($(this).data('card-index') == "6") {
+                g.play();
+            }
         }
         moveCounter();
         checkMatch();
         checkForWin();
     });
 
+
+    //FUNCTIONS
+
+    //playsound
+
+    function playSounds() {
+
+    }
+
+
     //move counter
-    
-    function moveCounter(){
-        if ($('.selected').length == 2){
-            turnCounter ++;
+
+    function moveCounter() {
+        if ($('.selected').length == 2) {
+            turnCounter++;
             $('#counter').html(turnCounter);
             console.log(turnCounter);
         }
     }
-    
-    
-    
+
+
+
 
     //shuffle code from:
     //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array    
@@ -101,16 +125,12 @@ $(document).ready(function() {
         });
     }
 
-    function assignClass() {
+    function assignColours() {
         $('.card').each(function(index) {
-            if ($('input[name=colours]').prop('checked') == "true"){
-                $(this).children(".back").addClass("color-" + cards[index]);
-            } else if ($('input[name=colours]').prop('checked') == "false"){
-                $(this).children(".back").addClass("plainFront");
-            }
+            $(this).children(".back").addClass("color-" + cards[index]);
         });
     }
-    
+
 
     function checkMatch() {
         if ($('.selected').length == 2) {
