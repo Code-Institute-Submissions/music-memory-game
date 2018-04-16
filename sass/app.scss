@@ -36,6 +36,13 @@
     background-color: $orange; 
 }
 
+.plainFront {
+   background-image: url("../assets/images/grey-trumpet.png"); 
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
 .card{
     height: 30%;
     width: 22%;

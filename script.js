@@ -33,11 +33,14 @@ $(document).ready(function() {
 
     //assign shuffled cards to divs
     assignIndex();
+    //assign colours or plain display to cards
     assignClass();
+    
 
     //add event listeners to display cards on click and add selected class
     $('.card').on('click', function() {
         $(this).addClass('flipped selected disabled');
+        
          if ($(this).data('card-index') == "1") {
             bflat.play();
         }
@@ -59,13 +62,12 @@ $(document).ready(function() {
         moveCounter();
         checkMatch();
         checkForWin();
-        
     });
 
     //move counter
     
     function moveCounter(){
-        if ($('.flipped').length == 2){
+        if ($('.selected').length == 2){
             turnCounter ++;
             $('#counter').html(turnCounter);
             console.log(turnCounter);
@@ -101,13 +103,14 @@ $(document).ready(function() {
 
     function assignClass() {
         $('.card').each(function(index) {
-            $(this).children(".back").addClass("color-" + cards[index]);
+            if ($('input[name=colours]').prop('checked') == "true"){
+                $(this).children(".back").addClass("color-" + cards[index]);
+            } else if ($('input[name=colours]').prop('checked') == "false"){
+                $(this).children(".back").addClass("plainFront");
+            }
         });
     }
     
-    function playSound(){
-       
-    }
 
     function checkMatch() {
         if ($('.selected').length == 2) {
@@ -128,7 +131,7 @@ $(document).ready(function() {
                         $(this).removeClass("flipped disabled selected");
                     });
                     console.log("no match");
-                }, 700);
+                }, 500);
                 //animate to show no match
                 //after a delay of 1 second turn both cards back over
             }

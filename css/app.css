@@ -426,6 +426,12 @@ body {
 .color-6 {
   background-color: #ff9d1e; }
 
+.plainFront {
+  background-image: url("../assets/images/grey-trumpet.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
 .card {
   height: 30%;
   width: 22%;
