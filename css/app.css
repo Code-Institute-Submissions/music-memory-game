@@ -432,9 +432,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover; }
 
-.disabled {
-  color: red; }
-
 .card {
   height: 30%;
   width: 22%;

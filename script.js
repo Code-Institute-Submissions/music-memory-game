@@ -36,8 +36,11 @@ function startGame() {
     cards = shuffle(cards);
     //assign shuffled cards to divs
     assignIndex();
-    //assign colours to cards
-    assignColours();
+    //assign colours to cards (after delay for animation on reset)
+    setTimeout(function(){
+       assignColours(); 
+    },500);
+    
 }
 
 
@@ -96,16 +99,15 @@ $('.card').on('click', function() {
 //FUNCTIONS
 function reset() {
     //remove classes
-    $('.deck').children().removeClass().removeAttr('data');
+    $('.deck').children().removeClass().removeAttr('data').removeData();
+    //add animation to spin over cards and remove existing color class
     $('.back').addClass('spinBack').removeClass(function(index, css) {
         return (css.match(/(^|\s)color\S+/g) || []).join(' ');
     });
-    
-
     //reset counter
     turnCounter = 0;
     $('#counter').html(turnCounter);
-
+    //reset game
     startGame();
 }
 
