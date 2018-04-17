@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    startGame();
+  startGame();
 });
 
 
@@ -31,161 +31,140 @@ var win = new Audio();
 win.src = "assets/sounds/win.mp3";
 
 
-function startGame() {
-    $('.deck').children().addClass('card soundOn notMatched');
-    cards = shuffle(cards);
-    //assign shuffled cards to divs
-    assignIndex();
-    //assign colours to cards (after delay for animation on reset)
-    setTimeout(function(){
-       assignColours(); 
-    },500);
-    
-}
-
-
-
 //EVENTS
-
 
 //option buttons
 $("#hard-btn").on("click", function() {
-    $('.spinBack').addClass("plainFront");
-    $('.card').addClass("soundOn");
+  $('.spinBack').addClass("plainFront");
 });
 $("#easy-btn").on("click", function() {
-    $('.spinBack').removeClass("plainFront");
+  $('.spinBack').removeClass("plainFront");
 });
 
 //reset button
 $("#reset-btn").on("click", function() {
-    reset();
+  reset();
 });
-
-
-
-
 
 
 //add event listeners to display cards on click and add selected class
 $('.card').on('click', function() {
-    $(this).addClass('flipped selected disabled');
-    if ($(this).hasClass("soundOn")) {
-        if ($(this).data('card-index') == "1") {
-            bflat.play();
-        }
-        else if ($(this).data('card-index') == "2") {
-            c.play();
-        }
-        else if ($(this).data('card-index') == "3") {
-            d.play();
-        }
-        else if ($(this).data('card-index') == "4") {
-            e.play();
-        }
-        else if ($(this).data('card-index') == "5") {
-            f.play();
-        }
-        else if ($(this).data('card-index') == "6") {
-            g.play();
-        }
-    }
-    moveCounter();
-    checkMatch();
-    checkForWin();
+  $(this).addClass('flipped selected disabled');
+  //play sounds
+  if ($(this).data('card-index') == "1") {
+    bflat.play();
+  }
+  else if ($(this).data('card-index') == "2") {
+    c.play();
+  }
+  else if ($(this).data('card-index') == "3") {
+    d.play();
+  }
+  else if ($(this).data('card-index') == "4") {
+    e.play();
+  }
+  else if ($(this).data('card-index') == "5") {
+    f.play();
+  }
+  else if ($(this).data('card-index') == "6") {
+    g.play();
+  }
+  moveCounter();
+  checkMatch();
+  checkForWin();
 });
 
 
 //FUNCTIONS
-function reset() {
-    //remove classes
-    $('.deck').children().removeClass().removeAttr('data').removeData();
-    //add animation to spin over cards and remove existing color class
-    $('.back').addClass('spinBack').removeClass(function(index, css) {
-        return (css.match(/(^|\s)color\S+/g) || []).join(' ');
-    });
-    //reset counter
-    turnCounter = 0;
-    $('#counter').html(turnCounter);
-    //reset game
-    startGame();
+
+function startGame() {
+  $('.deck').children().addClass('card notMatched');
+  cards = shuffle(cards);
+  //assign shuffled cards to divs
+  assignIndex();
+  //assign colours to cards (after delay for animation on reset)
+  setTimeout(function() {
+    assignColours();
+  }, 500);
 }
 
-
-//move counter
+function reset() {
+  //remove classes
+  $('.deck').children().removeClass().removeAttr('data').removeData();
+  //add animation to spin over cards and remove existing color class
+  $('.back').addClass('spinBack').removeClass(function(index, css) {
+    return (css.match(/(^|\s)color\S+/g) || []).join(' ');
+  });
+  //reset counter
+  turnCounter = 0;
+  $('#counter').html(turnCounter);
+  //reset game
+  startGame();
+}
 
 function moveCounter() {
-    if ($('.selected').length == 2) {
-        turnCounter++;
-        $('#counter').html(turnCounter);
-        console.log(turnCounter);
-    }
+  if ($('.selected').length == 2) {
+    turnCounter++;
+    $('#counter').html(turnCounter);
+    console.log(turnCounter);
+  }
 }
-
-
-
 
 //shuffle code from:
 //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array    
 function shuffle(array) {
-    var currentIndex = array.length,
-        temporaryValue, randomIndex;
-    while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-    return array;
+  var currentIndex = array.length,
+    temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
 }
 //end
 
-
-
 function assignIndex() {
-    $('.card').each(function(index) {
-        $(this).attr('data-card-index', cards[index]);
-    });
+  $('.card').each(function(index) {
+    $(this).attr('data-card-index', cards[index]);
+  });
 }
 
 function assignColours() {
-    $('.card').each(function(index) {
-        $(this).children(".spinBack").addClass("color-" + cards[index]);
-    });
+  $('.card').each(function(index) {
+    $(this).children(".spinBack").addClass("color-" + cards[index]);
+  });
 }
 
-
+//animate cards to show match
+//leave displayed
 function checkMatch() {
-    if ($('.selected').length == 2) {
-        if ($('.selected').first().data('card-index') == $('.selected').last().data('card-index')) {
-            setTimeout(function() {
-                $('.selected').each(function() {
-                    $(this).removeClass("notMatched selected").addClass("animated tada");
-                    $(this).children(".spinBack").removeClass('spinBack');
-                });
-                console.log("match");
-            }, 400);
-            //animate cards to show match
-            //leave displayed
-        }
-        else {
-            setTimeout(function() {
-                $('.selected').each(function() {
-                    $(this).removeClass("flipped disabled selected");
-                });
-                console.log("no match");
-            }, 500);
-            //animate to show no match
-            //after a delay of 1 second turn both cards back over
-        }
+  if ($('.selected').length == 2) {
+    if ($('.selected').first().data('card-index') == $('.selected').last().data('card-index')) {
+      setTimeout(function() {
+        $('.selected').each(function() {
+          $(this).removeClass("notMatched selected").addClass("animated tada");
+          $(this).children(".spinBack").removeClass('spinBack');
+        });
+      }, 400);
     }
+    else {
+      setTimeout(function() {
+        $('.selected').each(function() {
+          $(this).removeClass("flipped disabled selected");
+        });
+      }, 600);
+      //after a delay turn both cards back over
+    }
+  }
 }
 
 function checkForWin() {
-    setTimeout(function() {
-        if ($('.disabled').length == 12) {
-            win.play();
-        }
-    }, 700);
+  setTimeout(function() {
+    if ($('.disabled').length == 12) {
+      win.play();
+    }
+  }, 700);
 }

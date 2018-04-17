@@ -49,3 +49,18 @@
   background-clip: padding-box;
 }
 
+@mixin display($display){
+
+  display: -webkit-box;  
+  display: -ms-flexbox;  
+  display: -webkit-flex; 
+  display: flex;         
+}
+
+@mixin rotate($degrees){
+  -moz-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+          transform: rotate($degrees); 
+}
