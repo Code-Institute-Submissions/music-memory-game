@@ -3,6 +3,7 @@ Animate.css - http://daneden.me/animate
 Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2015 Daniel Eden
 */
+@import url("https://fonts.googleapis.com/css?family=Bungee+Shade|Roboto");
 body {
   -webkit-backface-visibility: hidden; }
 
@@ -397,6 +398,30 @@ body {
   -webkit-animation-name: flipInY;
   animation-name: flipInY; }
 
+.page-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Roboto", sans-serif; }
+
+.title {
+  font-family: "Bungee Shade", cursive;
+  font-size: 48px; }
+
+.lead {
+  font-size: 24px; }
+
+.title-text {
+  text-align: center; }
+
+.game {
+  text-align: center; }
+
 .deck {
   height: 300px;
   width: 400px;
@@ -409,7 +434,8 @@ body {
   justify-content: space-around;
   align-items: center;
   position: relative;
-  perspective: 800px; }
+  perspective: 800px;
+  margin: 0 auto; }
 
 .color-1 {
   background-color: #4286f4; }
@@ -439,6 +465,7 @@ body {
   height: 30%;
   width: 22%;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 0.6s; }
 
 figure {
@@ -448,12 +475,13 @@ figure {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   -webkit-border-radius: 20px;
-  border-radius: 20px;
-  background-clip: padding-box; }
+  border-radius: 20px; }
 
 .faceDown {
-  background-color: black; }
+  background-color: black;
+  border: 2px solid black; }
 
 .spinBack {
   -moz-transform: rotateY(180deg);
@@ -461,6 +489,9 @@ figure {
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   transform: rotateY(180deg); }
+
+.back {
+  border: 2px solid black; }
 
 .flipped {
   -moz-transform: rotateY(180deg);

@@ -2,7 +2,35 @@
 @import "_mixins";
 @import "animate-sass/animate";
 
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Roboto');
+
+
+.page-wrapper{
+    @include display(flex);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    font-family: $main-font;
+    
+}
+.title {
+   font-family: $header-font;
+   font-size: 48px;
+}
+.lead{
+    
+   font-size: 24px;
+}
+.title-text {
+    text-align: center;
+}
+.game {
+    text-align: center;
+}
+
 .deck {
+    
     height: 300px;
     width: 400px;
     @include display(flex);
@@ -12,13 +40,12 @@
     align-items: center;
     position: relative;
     perspective: 800px;
+    margin: 0 auto;
 }
 
-    
 .color-1{
     background-color: $blue;
 }
- 
 .color-2{
     background-color: $green;   
 }
@@ -28,7 +55,6 @@
 .color-4{
     background-color: $pink;
 }
-    
 .color-5{
     background-color: $purple ;
 }
@@ -47,8 +73,8 @@
     height: 30%;
     width: 22%;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: transform 0.6s;
-    
 }
 
 figure {
@@ -58,14 +84,21 @@ figure {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     @include border-radius(20px)
 }
 
 .faceDown {
     background-color: black;
+    border: 2px solid black;
+    
 }
 .spinBack {
    @include rotateY(180deg);
+}
+
+.back{
+    border: 2px solid black;
 }
 
 .flipped {
@@ -75,3 +108,6 @@ figure {
 .disabled {
     pointer-events: none;
 }
+
+
+
