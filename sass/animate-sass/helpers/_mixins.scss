@@ -57,10 +57,10 @@
   display: flex;         
 }
 
-@mixin rotate($degrees){
-  -moz-transform: rotate($degrees);
-  -o-transform: rotate($degrees);
-  -webkit-transform: rotate($degrees);
-      -ms-transform: rotate($degrees);
-          transform: rotate($degrees); 
+@mixin rotateY($degrees){
+  -moz-transform: rotateY($degrees);
+  -o-transform: rotateY($degrees);
+  -webkit-transform: rotateY($degrees);
+      -ms-transform: rotateY($degrees);
+          transform: rotateY($degrees); 
 }

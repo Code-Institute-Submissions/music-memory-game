@@ -65,11 +65,11 @@ figure {
     background-color: black;
 }
 .spinBack {
-   @include rotate(180deg);
+   @include rotateY(180deg);
 }
 
 .flipped {
-     @include rotate(180deg);
+     @include rotateY(180deg);
 }
 
 .disabled {
