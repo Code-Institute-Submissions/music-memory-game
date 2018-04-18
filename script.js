@@ -34,15 +34,19 @@ win.src = "assets/sounds/win.mp3";
 //EVENTS
 
 //option buttons
-$("#hard-btn").on("click", function() {
+$(".hard-btn").on("click", function() {
   $('.spinBack').addClass("plainFront");
+  $(".hard-btn").addClass("active");
+  $(".easy-btn").removeClass("active");
 });
-$("#easy-btn").on("click", function() {
+$(".easy-btn").on("click", function() {
   $('.spinBack').removeClass("plainFront");
+  $(".easy-btn").addClass("active");
+  $(".hard-btn").removeClass("active");
 });
 
 //reset button
-$("#reset-btn").on("click", function() {
+$(".reset-btn").on("click", function() {
   reset();
 });
 
