@@ -2,169 +2,189 @@
 @import "_mixins";
 @import "animate-sass/animate";
 
-@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Gaegu');
 
 
-.page-wrapper{
-    @include display(flex);
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    text-align: center;
-    font-family: $main-font;
-    
+.page-wrapper {
+  @include display(flex);
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  font-family: $main-font;
+  background-color: #08c6f3;
+
 }
+
 .title {
-   font-family: $header-font;
-   font-size: 48px;
+  font-family: $header-font;
+  font-size: 48px;
 }
-.lead{
-    
-   font-size: 24px;
+
+.lead {
+  font-size: 32px;
 }
+.counter-text {
+  font-size: 32px;
+}
+
+#counter {
+  font-family: $main-font;
+  font-size: 40px;
+  margin-left: 20px;
+}
+
+
 .title-text {
-    text-align: center;
+  text-align: center;
 }
+
 .game {
-    text-align: center;
-    margin: 40px auto;
+  text-align: center;
+  margin: 40px auto;
 }
 
 .deck {
-    
-    height: 300px;
-    width: 400px;
-    @include display(flex);
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    perspective: 800px;
-    margin: 0 auto;
+
+  height: 300px;
+  width: 400px;
+  @include display(flex);
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  perspective: 800px;
+  margin: 0 auto;
 }
 
-.color-1{
-    background-color: $blue;
+.color-1 {
+  background-color: $blue;
 }
-.color-2{
-    background-color: $green;   
+
+.color-2 {
+  background-color: $green;
 }
-.color-3{
-    background-color: $yellow;
+
+.color-3 {
+  background-color: $yellow;
 }
-.color-4{
-    background-color: $pink;
+
+.color-4 {
+  background-color: $pink;
 }
-.color-5{
-    background-color: $purple ;
+
+.color-5 {
+  background-color: $purple;
 }
-.color-6{
-    background-color: $orange; 
+
+.color-6 {
+  background-color: $orange;
 }
 
 .plainFront {
-   background-image: url("../assets/images/trumpet.png"); 
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: 80%;
-   background-color: white;
+  background-image: url("../assets/images/trumpet.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-color: white;
 }
 
-.card{
-    height: 30%;
-    width: 22%;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    transition: transform 0.6s;
-   
+.card {
+  height: 30%;
+  width: 22%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.6s;
+
 }
 
 figure {
-    margin: 0;
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    @include border-radius(20px);
-     box-shadow: -5px 5px #000;
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  @include border-radius(20px);
+  box-shadow: -5px 5px #000;
 }
 
 .faceDown {
-    background-color: $grey;
-    background-image: url("../assets/images/treble.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 2px solid black;
-    
-}
-.spinBack {
-   @include rotateY(180deg);
+  background-color: white;
+  background-image: url("../assets/images/treble.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid black;
+
 }
 
-.back{
-    border: 2px solid black;
+.spinBack {
+  @include rotateY(180deg);
+}
+
+.back {
+  border: 2px solid black;
 }
 
 .flipped {
-     @include rotateY(180deg);
+  @include rotateY(180deg);
 }
 
 .disabled {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 %btn {
-    width: 100px;
-    height: 40px;
-    @include border-radius(10px);
-    box-shadow: -5px 5px #000;
-    position: relative;
-    top: 0;
-    margin: 0px 10px;
-    font-family: $header-font;
-    font-size: 20px;
-    border: none;
-    transition: all 0.2s ease-in-out;
+  width: 100px;
+  height: 40px;
+  @include border-radius(10px);
+  box-shadow: -8px 5px #000;
+  position: relative;
+  top: 0;
+  margin: 0px 10px;
+  font-family: $header-font;
+  font-size: 20px;
+  border: 2px solid black;
+  transition: all 0.2s ease-in-out;
 }
 
 
 .easy-btn {
-    @extend %btn;
-    background-color: $yellow;
+  @extend %btn;
+  background-color: $yellow;
 }
 
 
 button:active,
 button:focus {
-    outline: 0;
+  outline: 0;
 }
 
 .hard-btn {
-    @extend %btn;
-    background-color: $purple;
+  @extend %btn;
+  background-color: $purple;
 }
 
 .active {
-  box-shadow: -1px 1px #000;;
+  box-shadow: -1px 1px #000;
+  ;
   top: 4px;
-  
+
 }
 
 .reset-btn {
-    @extend %btn;
-    background-color: $green;
+  @extend %btn;
+  background-color: $green;
 }
 
 .reset-btn:active {
-  box-shadow: -1px 1px #000;;
+  box-shadow: -1px 1px #000;
+  ;
   top: 4px;
 }
 
-#counter{
-  font-family: $header-font;
-  font-size: 28px;
-  margin-left: 20px;
-}
+
+
+//https://www.freepik.com/free-icons/music
