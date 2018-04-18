@@ -64,10 +64,11 @@
 }
 
 .plainFront {
-   background-image: url("../assets/images/grey-trumpet.png"); 
+   background-image: url("../assets/images/trumpet.png"); 
    background-position: center;
    background-repeat: no-repeat;
-   background-size: cover;
+   background-size: 80%;
+   background-color: white;
 }
 
 .card{
@@ -92,7 +93,10 @@ figure {
 }
 
 .faceDown {
-    background-color: black;
+    background-color: $grey;
+    background-image: url("../assets/images/treble.png");
+    background-repeat: no-repeat;
+    background-position: center;
     border: 2px solid black;
     
 }

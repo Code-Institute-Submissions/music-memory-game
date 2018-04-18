@@ -109,10 +109,11 @@ body {
   background-color: #ff9d1e; }
 
 .plainFront {
-  background-image: url("../assets/images/grey-trumpet.png");
+  background-image: url("../assets/images/trumpet.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: 80%;
+  background-color: white; }
 
 .card {
   height: 30%;
@@ -134,7 +135,10 @@ figure {
   box-shadow: -5px 5px #000; }
 
 .faceDown {
-  background-color: black;
+  background-color: #ece8e8;
+  background-image: url("../assets/images/treble.png");
+  background-repeat: no-repeat;
+  background-position: center;
   border: 2px solid black; }
 
 .spinBack {
