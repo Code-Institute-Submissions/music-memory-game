@@ -4,17 +4,72 @@
 
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Gaegu');
 
+html body {
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #08c6f3;
+}
 
 .page-wrapper {
   @include display(flex);
-  width: 100%;
-  height: 100%;
   flex-direction: column;
   text-align: center;
   font-family: $main-font;
   background-color: #08c6f3;
+  overflow: visible;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
 
 }
+
+.main {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+}
+
+.title-text {
+  text-align: center;
+}
+
+.buttonsAndCounter {
+  flex: 0 0 8rem;
+  @media (min-width: 768px) {
+    order: 1
+  }
+  order: 2;
+}
+
+.game {
+  text-align: center;
+  margin: 40px auto;
+  flex: 1 1 auto;
+  @media (min-width: 768px) {
+    order: 2;
+  }
+}
+
+.instructions {
+  @media (min-width: 768px) {
+    flex: 0 0 auto;
+    order: 3;
+  }
+  order: 1;
+  text-align: center;
+}
+
+.list{
+  list-style-type: none;
+}
+
+
 
 .title {
   font-family: $header-font;
@@ -25,6 +80,7 @@
   font-size: 32px;
   margin-bottom: 0;
 }
+
 .counter-text {
   font-size: 32px;
   position: relative;
@@ -37,28 +93,17 @@
   margin-left: 20px;
 }
 
-.counter-wrapper{
+.counter-wrapper {
   width: 270px;
   height: 40px;
-  background-color: white;
   border: solid 2px black;
-  @include border-radius(10px);
-  box-shadow: -8px 5px #000;
   position: relative;
   margin: 40px auto;
   text-align: center;
-  
+  @include border-radius(10px);
+
 }
 
-
-.title-text {
-  text-align: center;
-}
-
-.game {
-  text-align: center;
-  margin: 40px auto;
-}
 
 .deck {
 
@@ -159,11 +204,14 @@ figure {
   box-shadow: -8px 5px #000;
   position: relative;
   top: 0;
-  margin: 0px 10px;
+  margin: 20px 10px;
   font-family: $header-font;
   font-size: 20px;
   border: 2px solid black;
   transition: all 0.2s ease-in-out;
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
 
 

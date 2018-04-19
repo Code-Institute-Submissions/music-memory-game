@@ -50,17 +50,62 @@ body {
   -webkit-animation-name: tada;
   animation-name: tada; }
 
+html body {
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #08c6f3; }
+
 .page-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  width: 100%;
-  height: 100%;
   flex-direction: column;
   text-align: center;
   font-family: "Gaegu", cursive;
-  background-color: #08c6f3; }
+  background-color: #08c6f3;
+  overflow: visible;
+  min-height: 100%;
+  padding: 0;
+  margin: 0; }
+
+@media (min-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start; } }
+
+.title-text {
+  text-align: center; }
+
+.buttonsAndCounter {
+  flex: 0 0 8rem;
+  order: 2; }
+  @media (min-width: 768px) {
+    .buttonsAndCounter {
+      order: 1; } }
+
+.game {
+  text-align: center;
+  margin: 40px auto;
+  flex: 1 1 auto; }
+  @media (min-width: 768px) {
+    .game {
+      order: 2; } }
+
+.instructions {
+  order: 1;
+  text-align: center; }
+  @media (min-width: 768px) {
+    .instructions {
+      flex: 0 0 auto;
+      order: 3; } }
+
+.list {
+  list-style-type: none; }
 
 .title {
   font-family: "Bungee Shade", cursive;
@@ -83,21 +128,12 @@ body {
 .counter-wrapper {
   width: 270px;
   height: 40px;
-  background-color: white;
   border: solid 2px black;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  box-shadow: -8px 5px #000;
   position: relative;
   margin: 40px auto;
-  text-align: center; }
-
-.title-text {
-  text-align: center; }
-
-.game {
   text-align: center;
-  margin: 40px auto; }
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
 
 .deck {
   height: 300px;
@@ -193,11 +229,14 @@ figure {
   box-shadow: -8px 5px #000;
   position: relative;
   top: 0;
-  margin: 0px 10px;
+  margin: 20px 10px;
   font-family: "Bungee Shade", cursive;
   font-size: 20px;
   border: 2px solid black;
   transition: all 0.2s ease-in-out; }
+  @media (min-width: 768px) {
+    .easy-btn, .hard-btn, .reset-btn {
+      display: block; } }
 
 .easy-btn {
   background-color: #fcfc28; }

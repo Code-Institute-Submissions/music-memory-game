@@ -15,22 +15,33 @@
       <div class="title-text">
         <h1 class="title">Music Memory!</h1>
       </div>
-      <div>
-        <h2 class="lead">Find the matching pairs!</h2>
-      </div>
     </header>
-    <section>
-      <div class="counter-wrapper">
-        <h3 class="counter-text">Turn Counter: <span id="counter">0</span></h2>
-      </div>
-      <div class="buttons">
-        <button class="easy-btn active">Easy</button>
-        <button class="hard-btn">Hard</button>
-        <button class="reset-btn">Reset</button>
-      </div>
-    </section>
-    <section>
-      <div class="game">
+    <div class="main">
+      <aside class="instructions">
+        <h3>How to Play:</h3>
+        <ul class="list">
+          <li>
+            Turn over 2 notes to find matching pairs
+          </li>
+          <li>
+            Easy Mode: Colours help you to find the matching notes
+          </li>
+          <li>
+            Hard Mode: No colours to help! Use your ears...
+          </li>
+        </ul>
+      </aside>
+      <section class="buttonsAndCounter">
+        <div class="counter-wrapper">
+          <h3 class="counter-text">Turns: <span id="counter">0</span></h2>
+        </div>
+        <div class="buttons">
+          <button class="easy-btn active">Easy</button>
+          <button class="hard-btn">Hard</button>
+          <button class="reset-btn">Reset</button>
+        </div>
+      </section>
+      <section class="game">
         <div class="deck">
           <div class="card notMatched">
             <figure class="faceDown"></figure>
@@ -81,8 +92,8 @@
             <figure class="back spinBack"></figure>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="script.js"></script>
