@@ -67,15 +67,30 @@ body {
   font-size: 48px; }
 
 .lead {
-  font-size: 32px; }
+  font-size: 32px;
+  margin-bottom: 0; }
 
 .counter-text {
-  font-size: 32px; }
+  font-size: 32px;
+  position: relative;
+  margin: -15px auto; }
 
 #counter {
   font-family: "Gaegu", cursive;
   font-size: 40px;
   margin-left: 20px; }
+
+.counter-wrapper {
+  width: 270px;
+  height: 40px;
+  background-color: white;
+  border: solid 2px black;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: -8px 5px #000;
+  position: relative;
+  margin: 40px auto;
+  text-align: center; }
 
 .title-text {
   text-align: center; }
@@ -196,7 +211,8 @@ button:focus {
 
 .active {
   box-shadow: -1px 1px #000;
-  top: 4px; }
+  top: 4px;
+  opacity: 0.2; }
 
 .reset-btn {
   background-color: #42f445; }

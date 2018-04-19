@@ -38,11 +38,13 @@ $(".hard-btn").on("click", function() {
   $('.spinBack').addClass("plainFront");
   $(".hard-btn").addClass("active");
   $(".easy-btn").removeClass("active");
+  reset();
 });
 $(".easy-btn").on("click", function() {
   $('.spinBack').removeClass("plainFront");
   $(".easy-btn").addClass("active");
   $(".hard-btn").removeClass("active");
+  reset();
 });
 
 //reset button
@@ -99,10 +101,8 @@ function reset() {
   $('.back').addClass('spinBack').removeClass(function(index, css) {
     return (css.match(/(^|\s)color\S+/g) || []).join(' ');
   });
-  //reset counter
   turnCounter = 0;
   $('#counter').html(turnCounter);
-  //reset game
   startGame();
 }
 
@@ -143,7 +143,6 @@ function assignColours() {
 }
 
 //animate cards to show match
-//leave displayed
 function checkMatch() {
   if ($('.selected').length == 2) {
     if ($('.selected').first().data('card-index') == $('.selected').last().data('card-index')) {
