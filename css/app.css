@@ -71,15 +71,18 @@ html body {
   padding: 0;
   margin: 0; }
 
-@media (min-width: 768px) {
-  .main {
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-start;
-    flex-direction: row; } }
+.main {
+  margin-bottom: 100px; }
+  @media (min-width: 768px) {
+    .main {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      flex-direction: row; } }
 
 .title-text {
-  text-align: center; }
+  text-align: center;
+  margin-top: 40px; }
 
 .buttonsAndCounter {
   flex: 0 0 8rem;
@@ -103,7 +106,8 @@ html body {
 
 .instructions {
   order: 1;
-  text-align: center; }
+  text-align: center;
+  margin-right: 20px; }
   @media (min-width: 768px) {
     .instructions {
       flex: 0 0 auto;
