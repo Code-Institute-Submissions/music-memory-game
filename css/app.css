@@ -83,18 +83,23 @@ html body {
 
 .buttonsAndCounter {
   flex: 0 0 8rem;
-  order: 2; }
+  order: 2;
+  text-align: center; }
   @media (min-width: 768px) {
     .buttonsAndCounter {
-      order: 1; } }
+      order: 1;
+      min-width: 20%;
+      max-width: 20%; } }
 
 .game {
   text-align: center;
   margin: 40px auto;
+  position: relative;
   flex: 1 1 auto; }
   @media (min-width: 768px) {
     .game {
-      order: 2; } }
+      order: 2;
+      min-width: 60%; } }
 
 .instructions {
   order: 1;
@@ -102,38 +107,35 @@ html body {
   @media (min-width: 768px) {
     .instructions {
       flex: 0 0 auto;
-      order: 3; } }
+      order: 3;
+      min-width: 20%;
+      max-width: 20%;
+      margin: 0 auto; } }
+
+.instructions-title {
+  font-size: 24px; }
 
 .list {
-  list-style-type: none; }
+  list-style-type: none;
+  line-height: 1.5;
+  font-size: 18px; }
+
+.list-item {
+  margin-bottom: 15px; }
 
 .title {
   font-family: "Bungee Shade", cursive;
   font-size: 48px; }
 
-.lead {
-  font-size: 32px;
-  margin-bottom: 0; }
-
 .counter-text {
-  font-size: 32px;
+  font-size: 24px;
   position: relative;
-  margin: -15px auto; }
+  margin: 0 auto; }
 
 #counter {
   font-family: "Gaegu", cursive;
   font-size: 40px;
   margin-left: 20px; }
-
-.counter-wrapper {
-  width: 270px;
-  height: 40px;
-  border: solid 2px black;
-  position: relative;
-  margin: 40px auto;
-  text-align: center;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; }
 
 .deck {
   height: 300px;
@@ -195,9 +197,9 @@ figure {
   box-shadow: -5px 5px #000; }
 
 .faceDown {
-  background-color: white;
-  background-image: url("../assets/images/treble.png");
+  background-image: url("../assets/images/music-bg.jpg");
   background-repeat: no-repeat;
+  background-size: 600%;
   background-position: center;
   border: 2px solid black; }
 
@@ -229,14 +231,15 @@ figure {
   box-shadow: -8px 5px #000;
   position: relative;
   top: 0;
-  margin: 20px 10px;
+  margin: 20px;
   font-family: "Bungee Shade", cursive;
   font-size: 20px;
   border: 2px solid black;
   transition: all 0.2s ease-in-out; }
   @media (min-width: 768px) {
     .easy-btn, .hard-btn, .reset-btn {
-      display: block; } }
+      display: block;
+      margin: 20px auto; } }
 
 .easy-btn {
   background-color: #fcfc28; }

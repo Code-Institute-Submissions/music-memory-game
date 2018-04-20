@@ -42,17 +42,22 @@ html body {
 .buttonsAndCounter {
   flex: 0 0 8rem;
   @media (min-width: 768px) {
-    order: 1
+    order: 1;
+    min-width: 20%;
+    max-width: 20%;
   }
   order: 2;
+  text-align: center;
 }
 
 .game {
   text-align: center;
   margin: 40px auto;
+  position: relative;
   flex: 1 1 auto;
   @media (min-width: 768px) {
     order: 2;
+    min-width: 60%;
   }
 }
 
@@ -60,31 +65,37 @@ html body {
   @media (min-width: 768px) {
     flex: 0 0 auto;
     order: 3;
+    min-width: 20%;
+    max-width: 20%;
+    margin: 0 auto;
   }
   order: 1;
   text-align: center;
 }
 
-.list{
-  list-style-type: none;
+.instructions-title {
+  font-size: $small-header;
 }
 
-
+.list{
+  list-style-type: none;
+  line-height: 1.5;
+  font-size: $text-block-size;
+}
+.list-item {
+  margin-bottom: 15px;
+}
 
 .title {
   font-family: $header-font;
   font-size: 48px;
 }
 
-.lead {
-  font-size: 32px;
-  margin-bottom: 0;
-}
 
 .counter-text {
-  font-size: 32px;
+  font-size: $small-header;
   position: relative;
-  margin: -15px auto;
+  margin: 0 auto;
 }
 
 #counter {
@@ -94,13 +105,7 @@ html body {
 }
 
 .counter-wrapper {
-  width: 270px;
-  height: 40px;
-  border: solid 2px black;
-  position: relative;
-  margin: 40px auto;
-  text-align: center;
-  @include border-radius(10px);
+  
 
 }
 
@@ -173,9 +178,9 @@ figure {
 }
 
 .faceDown {
-  background-color: white;
-  background-image: url("../assets/images/treble.png");
+  background-image: url("../assets/images/music-bg.jpg");
   background-repeat: no-repeat;
+  background-size: 600%;
   background-position: center;
   border: 2px solid black;
 
@@ -204,13 +209,14 @@ figure {
   box-shadow: -8px 5px #000;
   position: relative;
   top: 0;
-  margin: 20px 10px;
+  margin: 20px;
   font-family: $header-font;
   font-size: 20px;
   border: 2px solid black;
   transition: all 0.2s ease-in-out;
   @media (min-width: 768px) {
     display: block;
+    margin: 20px auto;
   }
 }
 
@@ -251,4 +257,4 @@ button:focus {
 
 
 
-//https://www.freepik.com/free-icons/music
+
