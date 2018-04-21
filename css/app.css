@@ -69,7 +69,31 @@ html body {
   overflow: visible;
   min-height: 100%;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.title-text {
+  text-align: center;
+  margin-top: 40px; }
+
+.title {
+  font-family: "Bungee Shade", cursive;
+  font-size: 40px; }
+  @media (min-width: 768px) {
+    .title {
+      font-size: 5vw; } }
+
+.buttonsAndCounter {
+  flex: 0 0 8rem;
+  order: 2;
+  text-align: center;
+  margin-bottom: 40px; }
+  @media (min-width: 768px) {
+    .buttonsAndCounter {
+      order: 1;
+      min-width: 20vw;
+      margin-left: 40px; } }
 
 .main {
   margin-bottom: 100px; }
@@ -78,43 +102,36 @@ html body {
       display: flex;
       align-items: stretch;
       justify-content: flex-start;
-      flex-direction: row; } }
-
-.title-text {
-  text-align: center;
-  margin-top: 40px; }
-
-.buttonsAndCounter {
-  flex: 0 0 8rem;
-  order: 2;
-  text-align: center; }
-  @media (min-width: 768px) {
-    .buttonsAndCounter {
-      order: 1;
-      min-width: 20%;
-      max-width: 20%; } }
+      flex-direction: row;
+      margin-top: 40px; } }
 
 .game {
-  text-align: center;
-  margin: 40px auto;
-  position: relative;
   flex: 1 1 auto; }
   @media (min-width: 768px) {
     .game {
       order: 2;
-      min-width: 60%; } }
+      width: 60vw; } }
+
+.deck {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 5%;
+  position: relative;
+  perspective: 800px;
+  margin: 0 auto;
+  width: 90%;
+  height: 60vh; }
 
 .instructions {
   order: 1;
   text-align: center;
-  margin-right: 20px; }
+  margin: 0 10px; }
   @media (min-width: 768px) {
     .instructions {
       flex: 0 0 auto;
       order: 3;
-      min-width: 20%;
-      max-width: 20%;
-      margin: 0 auto; } }
+      width: 20vw;
+      margin-right: 40px; } }
 
 .instructions-title {
   font-size: 24px; }
@@ -122,43 +139,20 @@ html body {
 .list {
   list-style-type: none;
   line-height: 1.5;
-  font-size: 18px; }
+  font-size: 18px;
+  padding: 0; }
 
 .list-item {
   margin-bottom: 15px; }
 
-.title {
-  font-family: "Bungee Shade", cursive;
-  font-size: 48px; }
-
 .counter-text {
   font-size: 24px;
-  position: relative;
-  margin: 0 auto; }
+  position: relative; }
 
 #counter {
   font-family: "Gaegu", cursive;
   font-size: 40px;
   margin-left: 20px; }
-
-.deck {
-  height: 400px;
-  width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  perspective: 800px;
-  margin: 0 20px; }
-  @media (min-width: 768px) {
-    .deck {
-      height: 450px;
-      width: auto; } }
 
 .color-1 {
   background-color: #4286f4; }
@@ -179,23 +173,16 @@ html body {
   background-color: #ff9d1e; }
 
 .plainFront {
-  background-image: url("../assets/images/trumpet.png");
+  background-image: url("../assets/images/note.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 80%;
+  background-size: 50%;
   background-color: white; }
 
 .card {
-  height: 20%;
-  width: 28%;
-  margin: 2%;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transition: transform 0.6s; }
-  @media (min-width: 768px) {
-    .card {
-      height: 28%;
-      width: 20%; } }
 
 figure {
   margin: 0;
