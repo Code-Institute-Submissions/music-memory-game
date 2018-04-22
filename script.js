@@ -177,7 +177,7 @@ function checkForWin() {
 }
 
 
-//when two matching notes are selected, check if note is already playing, pause and reset and play again
+//bug-fix: when two matching notes are selected, check if note is already playing, pause and reset and play again
 function playBflat() {
   if (!bflat.paused) {
     bflat.pause();
