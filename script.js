@@ -196,32 +196,32 @@ function playC() {
 
 function playD() {
   if (!d.paused) {
-    c.pause();
-    c.currentTime = 0;
+    d.pause();
+    d.currentTime = 0;
   }
-  c.play();
+  d.play();
 }
 
 function playE() {
-  if (!c.paused) {
-    c.pause();
-    c.currentTime = 0;
+  if (!e.paused) {
+    e.pause();
+    e.currentTime = 0;
   }
-  c.play();
+  e.play();
 }
 
 function playF() {
-  if (!c.paused) {
-    c.pause();
-    c.currentTime = 0;
+  if (!f.paused) {
+    f.pause();
+    f.currentTime = 0;
   }
-  c.play();
+  f.play();
 }
 
 function playG() {
-  if (!c.paused) {
-    c.pause();
-    c.currentTime = 0;
+  if (!g.paused) {
+    g.pause();
+    g.currentTime = 0;
   }
-  c.play();
+  g.play();
 }
