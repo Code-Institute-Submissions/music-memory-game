@@ -9,6 +9,7 @@ var cards = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
 
 var turnCounter = 0;
 
+
 var bflat = new Audio();
 bflat.src = "assets/sounds/b-flat.mp3";
 
@@ -57,24 +58,28 @@ $(".reset-btn").on("click", function() {
 $('.card').on('click', function() {
   $(this).addClass('flipped selected disabled');
   //play sounds
-  if ($(this).data('card-index') == "1") {
-    bflat.play();
-  }
-  else if ($(this).data('card-index') == "2") {
-    c.play();
-  }
-  else if ($(this).data('card-index') == "3") {
-    d.play();
-  }
-  else if ($(this).data('card-index') == "4") {
-    e.play();
-  }
-  else if ($(this).data('card-index') == "5") {
-    f.play();
-  }
-  else if ($(this).data('card-index') == "6") {
-    g.play();
-  }
+  console.log($(this).data('card-index'))
+let cardIndex = $(this).data('card-index');
+switch(cardIndex) {
+    case 1:
+        playBflat();
+        break;
+    case 2:
+        playC();
+        break;
+    case 3:
+        playD();
+        break;
+    case 4:
+        playE();
+        break;
+    case 5:
+        playF();
+        break;
+    case 6:
+        playG();
+        break;    
+}
   moveCounter();
   checkMatch();
   checkForWin();
@@ -110,7 +115,6 @@ function moveCounter() {
   if ($('.selected').length == 2) {
     turnCounter++;
     $('#counter').html(turnCounter);
-    console.log(turnCounter);
   }
 }
 
@@ -170,4 +174,54 @@ function checkForWin() {
       win.play();
     }
   }, 700);
+}
+
+
+//when two matching notes are selected, check if note is already playing, pause and reset and play again
+function playBflat() {
+  if (!bflat.paused) {
+    bflat.pause();
+    bflat.currentTime = 0;
+  }
+  bflat.play();
+}
+
+function playC() {
+  if (!c.paused) {
+    c.pause();
+    c.currentTime = 0;
+  }
+  c.play();
+}
+
+function playD() {
+  if (!d.paused) {
+    c.pause();
+    c.currentTime = 0;
+  }
+  c.play();
+}
+
+function playE() {
+  if (!c.paused) {
+    c.pause();
+    c.currentTime = 0;
+  }
+  c.play();
+}
+
+function playF() {
+  if (!c.paused) {
+    c.pause();
+    c.currentTime = 0;
+  }
+  c.play();
+}
+
+function playG() {
+  if (!c.paused) {
+    c.pause();
+    c.currentTime = 0;
+  }
+  c.play();
 }
