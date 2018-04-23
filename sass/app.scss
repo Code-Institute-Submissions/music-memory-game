@@ -119,13 +119,12 @@ html body {
   position: relative;
 }
 
-#counter {
+.counter {
   font-family: $main-font;
   font-size: 40px;
   margin-left: 20px;
 }
 
-.counter-wrapper {}
 
 .color-1 {
   background-color: $blue;
@@ -249,4 +248,42 @@ button:focus {
 .reset-btn:active {
   box-shadow: -1px 1px #000;
   top: 4px;
+}
+
+
+
+.win-pop-up {
+  background-color: $yellow;
+  @include border-radius(20px);
+  border: 2px solid black;
+  width: 300px; 
+  height: 300px; 
+  margin: 40px auto;
+  z-index: 5; 
+  cursor: pointer; 
+  position: fixed;
+	top: 80px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.win-title {
+  font-family: $header-font;
+  font-size: 40px;
+}
+
+.final-counter-text {
+  margin-top: 0;
+  font-size: $small-header;
+}
+
+.play-btn {
+  @extend %btn;
+  background-color: $green;
+  width: 120px;
 }

@@ -50,6 +50,54 @@ body {
   -webkit-animation-name: tada;
   animation-name: tada; }
 
+@-webkit-keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(30px); }
+  80% {
+    -webkit-transform: translateX(-10px); }
+  100% {
+    -webkit-transform: translateX(0); } }
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px); }
+  60% {
+    opacity: 1;
+    transform: translateX(30px); }
+  80% {
+    transform: translateX(-10px); }
+  100% {
+    transform: translateX(0); } }
+.bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft; }
+
+@-webkit-keyframes bounceOutLeft {
+  0% {
+    -webkit-transform: translateX(0); }
+  20% {
+    opacity: 1;
+    -webkit-transform: translateX(20px); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px); } }
+@keyframes bounceOutLeft {
+  0% {
+    transform: translateX(0); }
+  20% {
+    opacity: 1;
+    transform: translateX(20px); }
+  100% {
+    opacity: 0;
+    transform: translateX(-2000px); } }
+.bounceOutLeft {
+  -webkit-animation-name: bounceOutLeft;
+  animation-name: bounceOutLeft; }
+
 html body {
   min-height: 100%;
   min-width: 100%;
@@ -149,7 +197,7 @@ html body {
   font-size: 24px;
   position: relative; }
 
-#counter {
+.counter {
   font-family: "Gaegu", cursive;
   font-size: 40px;
   margin-left: 20px; }
@@ -219,7 +267,7 @@ figure {
 .disabled {
   pointer-events: none; }
 
-.easy-btn, .hard-btn, .reset-btn {
+.easy-btn, .hard-btn, .reset-btn, .play-btn {
   width: 80px;
   height: 40px;
   -webkit-border-radius: 10px;
@@ -233,7 +281,7 @@ figure {
   border: 2px solid black;
   transition: all 0.2s ease-in-out; }
   @media (min-width: 768px) {
-    .easy-btn, .hard-btn, .reset-btn {
+    .easy-btn, .hard-btn, .reset-btn, .play-btn {
       display: block;
       margin: 20px auto;
       width: 100px;
@@ -260,5 +308,36 @@ button:focus {
 .reset-btn:active {
   box-shadow: -1px 1px #000;
   top: 4px; }
+
+.win-pop-up {
+  background-color: #fcfc28;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 300px;
+  height: 300px;
+  margin: 40px auto;
+  z-index: 5;
+  cursor: pointer;
+  position: fixed;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.hidden {
+  display: none; }
+
+.win-title {
+  font-family: "Bungee Shade", cursive;
+  font-size: 40px; }
+
+.final-counter-text {
+  margin-top: 0;
+  font-size: 24px; }
+
+.play-btn {
+  background-color: #42f445;
+  width: 120px; }
 
 /*# sourceMappingURL=app.css.map */

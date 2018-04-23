@@ -52,6 +52,14 @@ $(".easy-btn").on("click", function() {
 $(".reset-btn").on("click", function() {
   reset();
 });
+//play again button
+$(".play-btn").on("click", function() {
+  reset();
+  $(".win-pop-up").addClass("bounceOutLeft").removeClass("bounceInLeft");
+  setTimeout(function(){
+    $(".win-pop-up").addClass("hidden");
+  }, 500);
+});
 
 
 //add event listeners to display cards on click and add selected class
@@ -107,14 +115,14 @@ function reset() {
     return (css.match(/(^|\s)color\S+/g) || []).join(' ');
   });
   turnCounter = 0;
-  $('#counter').html(turnCounter);
+  $('.counter').html(turnCounter);
   startGame();
 }
 
 function moveCounter() {
   if ($('.selected').length == 2) {
     turnCounter++;
-    $('#counter').html(turnCounter);
+    $('.counter').html(turnCounter);
   }
 }
 
@@ -172,10 +180,14 @@ function checkForWin() {
   setTimeout(function() {
     if ($('.disabled').length == 12) {
       win.play();
+      showPopUp();
     }
   }, 700);
 }
 
+function showPopUp(){
+  $(".win-pop-up").removeClass("hidden bounceOutLeft").addClass("animated bounceInLeft")
+}
 
 //bug-fix: when two matching notes are selected, check if note is already playing, pause and reset and play again
 function playBflat() {
