@@ -66,7 +66,7 @@ $(".play-btn").on("click", function() {
 $('.card').on('click', function() {
   $(this).addClass('flipped selected disabled');
   //play sounds
-  console.log($(this).data('card-index'))
+  
 let cardIndex = $(this).data('card-index');
 switch(cardIndex) {
     case 1:

@@ -287,6 +287,9 @@ figure {
       width: 100px;
       height: 40px; } }
 
+.easy-btn:hover, .hard-btn:hover, .reset-btn:hover, .play-btn:hover {
+  opacity: 0.6; }
+
 .easy-btn {
   background-color: #fcfc28; }
 
@@ -300,7 +303,7 @@ button:focus {
 .active {
   box-shadow: -1px 1px #000;
   top: 4px;
-  opacity: 0.2; }
+  opacity: 0.6; }
 
 .reset-btn {
   background-color: #42f445; }
@@ -339,5 +342,9 @@ button:focus {
 .play-btn {
   background-color: #42f445;
   width: 120px; }
+
+.play-btn:active {
+  box-shadow: -1px 1px #000;
+  top: 4px; }
 
 /*# sourceMappingURL=app.css.map */

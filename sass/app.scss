@@ -219,6 +219,10 @@ figure {
   }
 }
 
+%btn:hover {
+  opacity: 0.6;
+}
+
 .easy-btn {
   @extend %btn;
   background-color: $yellow;
@@ -237,7 +241,7 @@ button:focus {
 .active {
   box-shadow: -1px 1px #000;
   top: 4px;
-  opacity: 0.2;
+  opacity: 0.6;
 }
 
 .reset-btn {
@@ -286,4 +290,9 @@ button:focus {
   @extend %btn;
   background-color: $green;
   width: 120px;
+}
+
+.play-btn:active {
+  box-shadow: -1px 1px #000;
+  top: 4px;
 }
