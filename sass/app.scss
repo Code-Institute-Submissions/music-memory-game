@@ -1,7 +1,6 @@
 @import "_variables";
 @import "_mixins";
 @import "animate-sass/animate";
-
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Gaegu');
 
 html body {
@@ -18,15 +17,12 @@ html body {
   text-align: center;
   font-family: $main-font;
   background-color: #08c6f3;
-  overflow: visible;
   min-height: 100%;
   padding: 0;
   margin: 0;
   width: 100%; 
   overflow:hidden;
-
 }
-
 
 .title-text {
   text-align: center;
@@ -44,18 +40,18 @@ html body {
 .buttonsAndCounter {
   flex: 0 0 8rem;
   @media (min-width: $tablet-width) {
-    order: 1;
+    @include order(1);
     min-width: 20vw;
     margin-left: 40px;
   }
-  order: 2;
+  @include order(2);
   text-align: center;
   margin-bottom: 40px;
 }
 
 .main {
   @media (min-width: $tablet-width) {
-    display: flex;
+    @include display(flex);
     align-items: stretch;
     justify-content: flex-start;
     flex-direction: row;
@@ -65,10 +61,9 @@ html body {
 }
 
 .game {
-
   flex: 1 1 auto;
   @media (min-width: $tablet-width) {
-    order: 2;
+    @include order(2);
    width: 60vw;
   }
   
@@ -82,20 +77,21 @@ html body {
   margin: 0 auto;
   width: 90%;
   height: 60vh;
+  @media (min-width: $desktop-width){
+    height: 70vh;
+  }
 } 
 
 .instructions {
   @media (min-width: $tablet-width) {
     flex: 0 0 auto;
-    order: 3;
+    @include order(3);
     width: 20vw;
     margin-right: 40px;
   }
-  order: 1;
+  @include order(1);
   text-align: center;
   margin: 0 10px;
-  
-  
 }
 
 .instructions-title {
@@ -113,7 +109,6 @@ html body {
   margin-bottom: 15px;
 }
 
-
 .counter-text {
   font-size: $small-header;
   position: relative;
@@ -124,7 +119,6 @@ html body {
   font-size: 40px;
   margin-left: 20px;
 }
-
 
 .color-1 {
   background-color: $blue;
@@ -151,12 +145,10 @@ html body {
 }
 
 .plainFront {
-  
   background-color: white;
 }
 
 .card {
-  
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -253,8 +245,6 @@ button:focus {
   box-shadow: -1px 1px #000;
   top: 4px;
 }
-
-
 
 .win-pop-up {
   background-color: $yellow;

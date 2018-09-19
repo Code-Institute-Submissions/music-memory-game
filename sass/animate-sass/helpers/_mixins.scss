@@ -43,22 +43,3 @@
 // end
 
 
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-  border-radius: $radius;
-}
-
-@mixin display($display){
-  display: -webkit-box;  
-  display: -ms-flexbox;  
-  display: -webkit-flex; 
-  display: flex;         
-}
-
-@mixin rotateY($degrees){
-  -moz-transform: rotateY($degrees);
-  -o-transform: rotateY($degrees);
-  -webkit-transform: rotateY($degrees);
-  -ms-transform: rotateY($degrees);
-  transform: rotateY($degrees); 
-}
